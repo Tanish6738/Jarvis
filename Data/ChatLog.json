@@ -1,0 +1,86 @@
+[
+    {
+        "role": "user",
+        "content": "who is ceo of apple"
+    },
+    {
+        "role": "assistant",
+        "content": ""
+    },
+    {
+        "role": "user",
+        "content": "hello"
+    },
+    {
+        "role": "assistant",
+        "content": "Hello!"
+    },
+    {
+        "role": "user",
+        "content": "who am i"
+    },
+    {
+        "role": "assistant",
+        "content": "You are Tanishq Chouhan."
+    },
+    {
+        "role": "user",
+        "content": "i was born in 2004 march 11"
+    },
+    {
+        "role": "assistant",
+        "content": "You are 20 years old."
+    },
+    {
+        "role": "user",
+        "content": "yes can you calculate the number of days passed since i was born"
+    },
+    {
+        "role": "assistant",
+        "content": "As of today (January 4, 2025), you've been alive for 7,661 days."
+    },
+    {
+        "role": "user",
+        "content": "bye"
+    },
+    {
+        "role": "assistant",
+        "content": "Goodbye!"
+    },
+    {
+        "role": "user",
+        "content": "current prize of apple stocks"
+    },
+    {
+        "role": "assistant",
+        "content": ""
+    },
+    {
+        "role": "user",
+        "content": "current prize of apple stocks"
+    },
+    {
+        "role": "assistant",
+        "content": "Empty response received"
+    },
+    {
+        "role": "user",
+        "content": "current date"
+    },
+    {
+        "role": "assistant",
+        "content": "Empty response received"
+    },
+    {
+        "role": "user",
+        "content": "who are you"
+    },
+    {
+        "role": "user",
+        "content": "current stock price of tata"
+    },
+    {
+        "role": "assistant",
+        "content": "I'm happy to help! As of my knowledge cutoff at 05:04:46 on January 4, 2025, the current stock price of Tata Motors Ltd. (TATAMOTORS) is \u20b9434.10 INR. Please note that stock prices can fluctuate rapidly and may have changed since my knowledge cutoff."
+    }
+]
