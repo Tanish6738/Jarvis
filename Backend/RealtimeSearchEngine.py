@@ -35,6 +35,7 @@ def GoogleSearch(query):
     Answers = f"The search results for {query} are: \n[start]\n"
     for result in results:
         Answers += f"Title : {result.title}\n Description : {result.description}\n "
+    # print(Answers)
     return Answers
 
 def AnswerModifier (Answer):
@@ -68,12 +69,18 @@ def Information ():
     data += f"Time : {hour}:{minute}:{second}\n"
     return data
 
-def RealtimeSearchEngine (query):
-    global messages , SystemChatBot
+def RealtimeSearchEngine(query):
+    global messages, SystemChatBot
 
     with open("Data/ChatLog.json", "r") as file:
         messages = load(file)
+    
+    # Store original messages
+    original_messages = messages.copy()
+    
     messages.append({"role": "user", "content": f"{query}"})
+
+    SystemChatBot.append({"role": "user", "content":GoogleSearch(query)})
 
     completion = client.chat.completions.create(
         model="llama3-70b-8192",
@@ -92,12 +99,12 @@ def RealtimeSearchEngine (query):
             Answer += chunk.choices[0].delta.content
 
     Answer = Answer.strip().replace("\n", " ")
-    messages.append({"role": "assistant", "content": Answer})
-
+    
+    # Restore original messages instead of keeping the new ones
     with open("Data/ChatLog.json", "w") as file:
-        dump(messages, file, indent=4)
+        dump(original_messages, file, indent=4)
 
-    SystemChatBot.pop()
+    SystemChatBot.pop(-1)
 
     return AnswerModifier(Answer=Answer)
 
