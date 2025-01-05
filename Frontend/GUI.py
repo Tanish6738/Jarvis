@@ -43,7 +43,7 @@ def SetMicropohoneStatus(Command):
         file.write(Command)
 
 def GetMicrophoneStatus():
-    with open(f"{TempDirPath}/MicrophoneStatus.data", "r",encoding="utf-8") as file:
+    with open(f"{TempDirPath}/Mic.data", "r",encoding="utf-8") as file:
         status=  file.read()
     return status
 

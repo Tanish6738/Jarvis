@@ -132,7 +132,7 @@ def OpenApp(app, sess=requests.session()):
         html = search_google(app)
 
         if html :
-            link = extract_links(html)[0]
+            link = extract_links(html)[2]
             webopen(link)
         return True
 
@@ -231,4 +231,4 @@ async def Automation (commands : list[str]) :
 
     return True
 
-OpenApp("telegram")
+# OpenApp("telegram")
