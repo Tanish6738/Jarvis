@@ -104,38 +104,52 @@ def PlayYoutube(Topic):
     return True
 
 def OpenApp(app, sess=requests.session()):
-    try :
-        appopen(app , match_closest=True, output=True, throw_error=True)
+    try:
+        # Attempt to open the app directly
+        appopen(app, match_closest=True, output=True, throw_error=True)
         return True
-    except :
+    except Exception as e:
+        print(f"Error opening app directly: {e}")
+
+        # Helper function to extract links
         def extract_links(html):
-            if html is None :
+            if html is None:
                 return []
             
             soup = BeautifulSoup(html, "html.parser")
-            links = soup.find_all("a", {'jsname' : 'UWckNb'})
-            return [link.get("href") for link in links]
-
+            links = soup.find_all("a", {'jsname': 'UWckNb'})
+            hrefs = [link.get("href") for link in links if link.get("href")]
+            return hrefs
+            
+        # Helper function to perform Google search
         def search_google(query):
             url = f"https://www.google.com/search?q={query}"
             headers = {
-                "User-Agent" : userAgent
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
             }
-            response = sess.get(url, headers=headers)
-            
-            if response.status_code == 200 :
-                return response.text
-            else : 
-                print("Failed to retrieve search results")
+            try:
+                response = sess.get(url, headers=headers)
+                return response.text if response.status_code == 200 else None
+            except Exception as e:
+                print(f"Error during Google search: {e}")
                 return None
-            
+        
+        # Perform search and extract links
         html = search_google(app)
-
-        if html :
-            link = extract_links(html)[2]
-            webopen(link)
+        links = extract_links(html)
+        
+        if links:
+            # Open the first link
+            full_url = f"https://www.google.com{links[0]}" if links[0].startswith('/url') else links[0]
+            print(f"Opening: {full_url}")
+            webbrowser.open(full_url)
+        else:
+            # Fallback to search result page
+            fallback_url = f"https://www.google.com/search?q={app}"
+            print(f"No specific links found. Opening search results: {fallback_url}")
+            webbrowser.open(fallback_url)
+        
         return True
-
 def CloseApp(app):
     
     if "chrome" in app:
@@ -231,4 +245,4 @@ async def Automation (commands : list[str]) :
 
     return True
 
-# OpenApp("telegram")
+OpenApp("FaceBook")
