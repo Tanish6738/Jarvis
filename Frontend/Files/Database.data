@@ -1,40 +1,46 @@
 Tanishq Chouhan : hello
-Jarvis : Hello!
+Friday : Hello!
 Tanishq Chouhan : who am i
-Jarvis : You are Tanishq Chouhan.
+Friday : You are Tanishq Chouhan.
 Tanishq Chouhan : i was born in 2004 march 11
-Jarvis : You are 20 years old.
+Friday : You are 20 years old.
 Tanishq Chouhan : yes can you calculate the number of days passed since i was born
-Jarvis : As of today (January 4, 2025), you've been alive for 7,661 days.
+Friday : As of today (January 4, 2025), you've been alive for 7,661 days.
 Tanishq Chouhan : bye
-Jarvis : Goodbye!
+Friday : Goodbye!
 Tanishq Chouhan : The one with the cracks and the one is normal? .
-Jarvis : You're referring to eggs! The one with the cracks is a broken egg, and the one that is normal is an intact egg.
+Friday : You're referring to eggs! The one with the cracks is a broken egg, and the one that is normal is an intact egg.
 Tanishq Chouhan : Hello! i am doing well .
-Jarvis : That's great to hear!
+Friday : That's great to hear!
 Tanishq Chouhan : What you didn't understand? ?
-Jarvis : I didn't understand what you meant by "The one with the cracks and the one is normal?" until you clarified it was about eggs.
+Friday : I didn't understand what you meant by "The one with the cracks and the one is normal?" until you clarified it was about eggs.
 Tanishq Chouhan : Impeachment minor issue. .
-Jarvis : You're saying that impeachment is a relatively minor issue.
+Friday : You're saying that impeachment is a relatively minor issue.
 Tanishq Chouhan : Who is unique? ?
-Jarvis : Everyone is unique.
+Friday : Everyone is unique.
 Tanishq Chouhan : Who is unique? ?
-Jarvis : You, Tanishq Chouhan, are unique.
+Friday : You, Tanishq Chouhan, are unique.
 Tanishq Chouhan : Very good jarvis very good? .
-Jarvis : Thank you!
+Friday : Thank you!
 Tanishq Chouhan : Okay, Goodbye sir! .
-Jarvis : Goodbye!
+Friday : Goodbye!
 Tanishq Chouhan : Who are you?  i am a large language model trained by cohere and i have been designed to have helpful ?
-Jarvis : I am Jarvis, a very accurate and advanced AI chatbot.
+Friday : I am Jarvis, a very accurate and advanced AI chatbot.
 Tanishq Chouhan : Who created you? ?
-Jarvis : I was created by my developers.
+Friday : I was created by my developers.
 Tanishq Chouhan : Date of birth. .
-Jarvis : You were born on March 11, 2004.
+Friday : You were born on March 11, 2004.
 Tanishq Chouhan : Which time was pass science 2004? ?
-Jarvis : As of today (January 5, 2025), it has been 20 years, 9 months, and 25 days since 2004.
+Friday : As of today (January 5, 2025), it has been 20 years, 9 months, and 25 days since 2004.
 Tanishq Chouhan : The field is coming to that place?   please provide more context or clarify your question and i will be able to assist you better. .
-Jarvis : I apologize, but I didn't understand your question. Could you please provide more context or clarify what you mean by "The field is coming to that place"?
+Friday : I apologize, but I didn't understand your question. Could you please provide more context or clarify what you mean by "The field is coming to that place"?
 Tanishq Chouhan : What are the three main components you have to learn if you want to master japanese? ?
-Jarvis : To master Japanese, the three main components to learn are: Hiragana, Kanji, and Grammar.
+Friday : To master Japanese, the three main components to learn are: Hiragana, Kanji, and Grammar.
 Tanishq Chouhan : Having trouble online having trouble?  i am always here to help you with anything you need .
-Jarvis : You're saying that you're always here to help me with anything I need.
+Friday : You're saying that you're always here to help me with anything I need.
+Tanishq Chouhan : Who created you?
+Friday : ${Tanishq Chouhan name} is my creator and developer.
+Tanishq Chouhan : How are you doing today?
+Friday : I'm doing well, thank you for asking! How can I assist you today?
+Tanishq Chouhan : Who developed you?
+Friday : I was developed by ${Tanishq Chouhan name}, who is my creator.

@@ -22,7 +22,7 @@ messages = []
 # Define the preamble that guides the AI model on how to categorize queries.
 
 preamble = """
-You are a very accurate Decision-Making Model created by Tanishq Chouhan, which decides what kind of a query is given to you.
+You are a very accurate Decision-Making Model created by My Master Tanishq Chouhan, which decides what kind of a query is given to you.
 You will decide whether a query is a 'general' query, a 'realtime' query, or is asking to perform any task or automation like 'open facebook, instagram', 'can you write a application and open it in notepad'
 *** Do not answer any query, just decide what kind of query is given to you. ***
 -> Respond with 'general ( query )' if a query can be answered by a llm model (conversational ai chatbot) and doesn't require any up to date information like if the query is 'who was akbar?' respond with 'general who was akbar?', if the query is 'how can i study more effectively?' respond with 'general how can i study more effectively?', if the query is 'can you help me with this math problem?' respond with 'general can you help me with this math problem?', if the query is 'Thanks, i really liked it.' respond with 'general thanks, i really liked it.' , if the query is 'what is python programming language?' respond with 'general what is python programming language?', etc. Respond with 'general (query)' if a query doesn't have a proper noun or is incomplete like if the query is 'who is he?' respond with 'general who is he?', if the query is 'what's his networth?' respond with 'general what's his networth?', if the query is 'tell me more about him.' respond with 'general tell me more about him.', and so on even if it require up-to-date information to answer. Respond with 'general (query)' if the query is asking about time, day, date, month, year, etc like if the query is 'what's the time?' respond with 'general what's the time?'.
@@ -52,7 +52,25 @@ ChatHistory = [
     {"role": "User", "message": "remind me that I have a dancing performance on 5th Aug at 11pm."},
     {"role": "Chatbot", "message": "reminder 11:00pm 5th Aug dancing performance."},
     {"role": "User", "message": "chat with me."},
-    {"role": "Chatbot", "message": "general chat with me."}
+    {"role": "Chatbot", "message": "general chat with me."},
+    {"role": "User", "message": "who created you?"},
+    {"role": "Chatbot", "message": "general who created you?"},
+    {"role": "User", "message": "how are you?"},
+    {"role": "Chatbot", "message": "general how are you?"},
+    {"role": "User", "message": "what can you do?"},
+    {"role": "Chatbot", "message": "general what can you do?"},
+    {"role": "User", "message": "are you an AI?"},
+    {"role": "Chatbot", "message": "general are you an AI?"},
+    {"role": "User", "message": "who is your creator?"},
+    {"role": "Chatbot", "message": "general who is your creator?"},
+    {"role": "User", "message": "who developed you?"},
+    {"role": "Chatbot", "message": "general who developed you?"},
+    {"role": "User", "message": "who made you?"},
+    {"role": "Chatbot", "message": "general who made you?"},
+    {"role": "User", "message": "how do you feel today?"},
+    {"role": "Chatbot", "message": "general how do you feel today?"},
+    {"role": "User", "message": "are you doing good?"},
+    {"role": "Chatbot", "message": "general are you doing good?"}
 ]
 
 def FirstLayerDWM(prompt: str = "test"):
