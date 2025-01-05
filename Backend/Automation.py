@@ -150,6 +150,7 @@ def OpenApp(app, sess=requests.session()):
             webbrowser.open(fallback_url)
         
         return True
+
 def CloseApp(app):
     
     if "chrome" in app:

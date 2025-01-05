@@ -46,5 +46,61 @@
     {
         "role": "assistant",
         "content": "You're referring to eggs! The one with the cracks is a broken egg, and the one that is normal is an intact egg."
+    },
+    {
+        "role": "user",
+        "content": "Hello! i am doing well ."
+    },
+    {
+        "role": "assistant",
+        "content": "That's great to hear!"
+    },
+    {
+        "role": "user",
+        "content": "What you didn't understand? ?"
+    },
+    {
+        "role": "assistant",
+        "content": "I didn't understand what you meant by \"The one with the cracks and the one is normal?\" until you clarified it was about eggs."
+    },
+    {
+        "role": "user",
+        "content": "Impeachment minor issue. ."
+    },
+    {
+        "role": "assistant",
+        "content": "You're saying that impeachment is a relatively minor issue."
+    },
+    {
+        "role": "user",
+        "content": "Who is unique? ?"
+    },
+    {
+        "role": "assistant",
+        "content": "Everyone is unique."
+    },
+    {
+        "role": "user",
+        "content": "Who is unique? ?"
+    },
+    {
+        "role": "assistant",
+        "content": "You, Tanishq Chouhan, are unique."
+    },
+    {
+        "role": "user",
+        "content": "Very good jarvis very good? ."
+    },
+    {
+        "role": "assistant",
+        "content": "Thank you!"
+    },
+    {
+        "role": "user",
+        "content": "Okay, goodbye sir! ."
+    },
+    {
+        "role": "assistant",
+        "content": "Goodbye!"
     }
 ]
