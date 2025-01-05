@@ -28,7 +28,7 @@ Username    = env_vars.get("Username")
 AssistantName = env_vars.get("AssistantName")
 DefaultMessage = f'''{Username} : Hello {AssistantName}! , How are you?
 {AssistantName} : Welcome {Username}. I am doing well. How may i help you? '''
-subprocess = []
+process_list = []  # New name for storing processes
 Functios = ["open", "close", "content", "play", "system", "google search" , "youtube search" ]
 
 def ShowDefaultIfNoChats():
@@ -104,7 +104,7 @@ def MainExecution():
     )
 
     for queries in Decision:
-        if "generate" in queries:
+        if "generate " in queries:
             ImageGenerationQuery = str(queries)
             ImageExecution = True
 
@@ -113,15 +113,20 @@ def MainExecution():
             if any(queries.startswith(func) for func in Functios):
                 run(Automation(list(Decision)))
     
-    if ImageExecution == True : 
+    if ImageExecution:
         with open("Frontend/Files/ImageGeneration.data", "w") as File:
-            File.write(f"{ImageGenerationQuery}.True")
+            File.write(f"{ImageGenerationQuery},True")
 
-        try :
-            p1 = subprocess.Popen(["python", "Backend/ImageGeneration.py"],
-                                  stdout=subprocess.PIPE, stderr = subprocess.PIPE ,
-                                  stdin=subprocess.PIPE,shell=False)
-            subprocess.append(p1)
+        try:
+            process = subprocess.Popen(
+                ["python", "Backend/ImageGeneration.py"],
+                stdout=subprocess.PIPE, 
+                stderr=subprocess.PIPE,
+                stdin=subprocess.PIPE,
+                shell=False
+            )
+            # Use process_list instead of subprocess
+            process_list.append(process)
         except Exception as e:
             print(f"Error Starting ImageGeneration.py : {e}")
     

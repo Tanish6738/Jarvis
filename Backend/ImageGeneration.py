@@ -9,7 +9,7 @@ from time import sleep
 def open_images(prompt):
     folder_path = "Data"
     prompt = prompt.replace(" ", "_")
-    Files = [f"{prompt}{i}.jpg" for i in range(1, 5)]
+    Files = [f"{prompt}{i}.jpg" for i in range(1, 4)]
 
     for jpg in Files:
         img_path = os.path.join(folder_path, jpg)
@@ -51,22 +51,35 @@ def GenerateImages(prompt):
     asyncio.run(generate_images(prompt))
     open_images(prompt)
 
-while True :
-    try :
+while True:
+    try:
         with open("Frontend/Files/ImageGeneration.data", "r") as file:
-            Data : str = file.read()
+            Data = file.read().strip()
         
-        Prompt , Status = Data.split(",")
+        if not Data:
+            sleep(1)
+            continue
+            
+        try:
+            Prompt, Status = Data.split(",")
+        except ValueError:
+            print("Invalid data format")
+            sleep(1)
+            continue
 
-        if Status == "True":
-            print("Generating images")
-            ImageStatus = GenerateImages(Prompt)
-
+        if Status.strip() == "True":
+            print(f"Generating images for prompt: {Prompt}")
+            try:
+                ImageStatus = GenerateImages(Prompt)
+            except Exception as e:
+                print(f"Error generating images: {e}")
+            
             with open("Frontend/Files/ImageGeneration.data", "w") as file:
                 file.write("False,False")
-                break
-        else :
+            break
+        else:
             sleep(1)
 
     except Exception as e:
-        print(e)
+        print(f"Error: {e}")
+        sleep(1)

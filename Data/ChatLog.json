@@ -97,7 +97,7 @@
     },
     {
         "role": "user",
-        "content": "Okay, goodbye sir! ."
+        "content": "Okay, Goodbye sir! ."
     },
     {
         "role": "assistant",
@@ -158,13 +158,5 @@
     {
         "role": "assistant",
         "content": "You're saying that you're always here to help me with anything I need."
-    },
-    {
-        "role": "user",
-        "content": "Okay, goodbye sir! ."
-    },
-    {
-        "role": "assistant",
-        "content": "Goodbye!"
     }
 ]

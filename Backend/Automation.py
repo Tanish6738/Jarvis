@@ -93,15 +93,22 @@ def OpenApp(Topic):
     return True
 
 def SearchYoutube(Topic):
-    Url4Search = f"http://www.youtube.com/results?search_query={Topic}"
-    webbrowser.open(Url4Search)
+    query = Topic.strip()
+    url = f"https://www.youtube.com/results?search_query={query}"
+    webbrowser.open(url)
     return True
-
-# SearchYoutube("binks sake")
 
 def PlayYoutube(Topic):
-    playonyt(Topic)
+    query = Topic.strip()  # Clean the input
+    try:
+        playonyt(query)
+    except Exception as e:
+        print(f"Error playing YouTube video: {e}")
+        url = f"https://www.youtube.com/results?search_query={query.replace(' ', '+')}"
+        webbrowser.open(url)
     return True
+
+# PlayYoutube("binks sake")
 
 def OpenApp(app, sess=requests.session()):
     try:
@@ -221,7 +228,7 @@ async def TranslateAndExecute(commands : list[str]) :
             funcs.append(fun)
         
         elif command.startswith("youtube search") :
-            fun = asyncio.to_thread(OpenApp, command.removeprefix("youtube search"))
+            fun = asyncio.to_thread(SearchYoutube, command.removeprefix("youtube search"))
             funcs.append(fun)
 
         elif command.startswith("system ") :
@@ -246,4 +253,4 @@ async def Automation (commands : list[str]) :
 
     return True
 
-OpenApp("FaceBook")
+# OpenApp("FaceBook")
