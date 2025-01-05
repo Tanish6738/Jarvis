@@ -9,19 +9,18 @@ from time import sleep
 def open_images(prompt):
     folder_path = "Data"
     prompt = prompt.replace(" ", "_")
-
     Files = [f"{prompt}{i}.jpg" for i in range(1, 5)]
 
     for jpg in Files:
         img_path = os.path.join(folder_path, jpg)
-        try :
-            img = Image.open(img_path)
-            print(f"Opening image : {img_path}")
-            img.show()
+        try:
+            # Using os.startfile instead of PIL.Image.show()
+            abs_path = os.path.abspath(img_path)
+            os.startfile(abs_path)
             sleep(1)
-
-        except IOError:
-            print(f"Failed to open image : {img_path}")
+            print(f"Opening image: {img_path}")
+        except Exception as e:
+            print(f"Failed to open image {img_path}: {str(e)}")
 
 API_URL = "https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl-base-1.0"
 headers = {
