@@ -159,14 +159,22 @@ def OpenApp(app, sess=requests.session()):
         return True
 
 def CloseApp(app):
-    
-    if "chrome" in app:
-        pass
-    else : 
-        try : 
-            close(app, match_closest=True, output=True, throw_error=True)
-        except :
+    if "chrome" in app.lower():
+        try:
+            # Use taskkill to force close Chrome
+            subprocess.run(['taskkill', '/F', '/IM', 'chrome.exe'], 
+                         capture_output=True, 
+                         check=False)
             return True
+        except Exception as e:
+            print(f"Error closing Chrome: {e}")
+            return False
+    else:
+        try:
+            close(app, match_closest=True, output=True, throw_error=True)
+            return True
+        except:
+            return False
 
 def System (command):
 

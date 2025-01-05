@@ -58,15 +58,19 @@ current_dir = os.getcwd()
 
 Link = f"{current_dir}/Data/Voice.html"
 
-chrome_options = Options()
-user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
-chrome_options.add_argument(f"user-agent={user_agent}")
-chrome_options.add_argument("--use-fake-ui-for-media-stream")
-chrome_options.add_argument("--use-fake-device-for-media-stream")
-chrome_options.add_argument("--headless=new")
+def initialize_driver():
+    chrome_options = Options()
+    user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
+    chrome_options.add_argument(f"user-agent={user_agent}")
+    chrome_options.add_argument("--use-fake-ui-for-media-stream")
+    chrome_options.add_argument("--use-fake-device-for-media-stream")
+    chrome_options.add_argument("--headless=new")
+    
+    service = Service(ChromeDriverManager().install())
+    return webdriver.Chrome(service=service, options=chrome_options)
 
-service = Service(ChromeDriverManager().install())
-driver = webdriver.Chrome(service=service, options=chrome_options)
+# Initialize the driver
+driver = initialize_driver()
 
 TempDirPath = f"{current_dir}/Frontend/Files"
 
@@ -96,24 +100,31 @@ def UniversalTranslator (Text):
     return english_translation.capitalize()
 
 def SpeechRecognition():
-    driver.get("file:///" + Link)
+    global driver
+    try:
+        driver.get("file:///" + Link)
 
-    driver.find_element(by=By.ID, value="start").click()
+        driver.find_element(by=By.ID, value="start").click()
 
-    while True :
-        try:
-            Text = driver.find_element(by=By.ID, value="output").text
+        while True :
+            try:
+                Text = driver.find_element(by=By.ID, value="output").text
 
-            if Text:
-                driver.find_element(by=By.ID, value="end").click()
+                if Text:
+                    driver.find_element(by=By.ID, value="end").click()
 
-                if InputLanguage.lower() == "en" or "en" in InputLanguage.lower() : 
-                    return QueryModifier(Text)
-                else:
-                    SetAssistantStatus("Translating ... ")
-                    return QueryModifier(UniversalTranslator(Text))
-        except Exception as e:
-            pass
+                    if InputLanguage.lower() == "en" or "en" in InputLanguage.lower() : 
+                        return QueryModifier(Text)
+                    else:
+                        SetAssistantStatus("Translating ... ")
+                        return QueryModifier(UniversalTranslator(Text))
+            except Exception as e:
+                pass
+    except Exception as e:
+        print(f"Error in speech recognition: {e}")
+        # Reinitialize driver if there's an error
+        driver = initialize_driver()
+        return SpeechRecognition()
 
 if __name__ == "__main__":
     while True:

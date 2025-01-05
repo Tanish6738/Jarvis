@@ -82,6 +82,7 @@ def InitialExecution():
 InitialExecution()
 
 def MainExecution():
+    global driver  # Add this at the top
     TaskExecution = False
     ImageExecution = False
     ImageGenerationQuery = ""
@@ -95,6 +96,15 @@ def MainExecution():
     print("")
     print(f"Decision : {Decision}")
     print("")
+
+    # Handle Chrome closing before other operations
+    for queries in Decision:
+        if queries.startswith("close") and "chrome" in queries.lower():
+            run(Automation([queries]))
+            # Re-initialize the driver after Chrome is closed
+            from Backend.SpeechToText import initialize_driver
+            driver = initialize_driver()
+            return True
 
     G = any([i for i in Decision if i.startswith("general")])
     R = any([i for i in Decision if i.startswith("realtime")])
